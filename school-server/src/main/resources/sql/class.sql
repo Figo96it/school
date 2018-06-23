@@ -1,6 +1,8 @@
-Create database if not exists School;
+CREATE DATABASE IF NOT EXISTS School;
 
-CREATE TABLE class (
+CREATE TABLE IF NOT EXISTS class (
 id_class BIGINT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-class_name VARCHAR(20)
+id_school BIGINT(20) NOT NULL, 
+class_name VARCHAR(20) NOT NULL, 
+form_tutor_id BIGINT(20) NOT NULL
 );
