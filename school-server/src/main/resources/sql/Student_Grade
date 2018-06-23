@@ -1,0 +1,5 @@
+CREATE TABLE Student_Grade (
+	  Id INTEGER primary key AUTO_INCREMENT,
+	  IdStudent INTEGER,
+    IdGrade INTEGER
+);
