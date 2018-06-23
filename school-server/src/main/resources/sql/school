@@ -1,0 +1,8 @@
+drop table School;
+CREATE TABLE School (
+    ID int NOT NULL,
+    Name varchar(255) not null,
+    Address varchar(255) NOT NULL,
+    ClassId int,
+    PRIMARY KEY (ID)
+);
