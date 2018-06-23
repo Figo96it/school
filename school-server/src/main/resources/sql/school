@@ -1,4 +1,4 @@
-drop table School if exists;
+drop table School if not exists;
 CREATE TABLE School (
     id int not null,
     name varchar(255) not null,
