@@ -5,4 +5,4 @@ CREATE TABLE employee (
   position varchar(45) DEFAULT NULL,
   id_class varchar(45) DEFAULT NULL,
   PRIMARY KEY (id_employee)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+)
