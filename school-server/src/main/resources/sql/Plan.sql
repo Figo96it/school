@@ -1,0 +1,7 @@
+drop table Plan;
+CREATE TABLE Plan(
+  ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  CLASS_NAME varchar(5) NOT NULL,
+  SCHOOL_SUBJECT varchar(255),
+  HOURS_IN_WEEK INT
+);
