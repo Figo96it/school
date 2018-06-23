@@ -1,5 +1,5 @@
-CREATE TABLE Student_Grade (
-	  Id INTEGER primary key AUTO_INCREMENT,
-	  IdStudent INTEGER,
-    IdGrade INTEGER
+CREATE TABLE IF NOT EXISTS Student_Grade (
+	Id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	IdStudent INTEGER,
+	IdGrade INTEGER
 );
