@@ -13,31 +13,31 @@ public class PlanController implements PlanApi {
 
     @Override
     @PostMapping("plan/add")
-    public Plan createPlan() {
+    public Plan create() {
         return null;
     }
 
     @Override
     @PostMapping("plan/delete")
-    public Plan deletePlan() {
+    public Plan delete() {
         return null;
     }
 
     @Override
-    @PostMapping("subject/edit")
-    public Plan editPlan() {
+    @PostMapping("plan/edit")
+    public Plan edit() {
         return null;
     }
 
     @Override
-    @GetMapping("subject/find")
-    public Plan findPlan() {
+    @GetMapping("plan/find")
+    public Plan find() {
         return null;
     }
 
     @Override
-    @GetMapping("subject/findAll")
-    public List<Plan> findAllPlans() {
+    @GetMapping("plan/findAll")
+    public List<Plan> findAll() {
         return null;
     }
 }

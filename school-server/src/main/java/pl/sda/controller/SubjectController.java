@@ -11,31 +11,31 @@ public class SubjectController implements SubjectApi {
 
     @Override
     @PostMapping("subject/add")
-    public Subject createSubject() {
+    public Subject create() {
         return null;
     }
 
     @Override
     @PostMapping("subject/delete")
-    public Subject deleteSubject() {
+    public Subject delete() {
         return null;
     }
 
     @Override
     @PostMapping("subject/edit")
-    public Subject editSubject() {
+    public Subject edit() {
         return null;
     }
 
     @Override
     @GetMapping("subject/find")
-    public Subject findSubject() {
+    public Subject find() {
         return null;
     }
 
     @Override
     @GetMapping("subject/findAll")
-    public Subject findAllSubjects() {
+    public Subject findAll() {
         return null;
     }
 }

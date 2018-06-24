@@ -4,10 +4,14 @@ import pl.sda.model.Subject;
 
 public interface SubjectApi {
 
-    public Subject createSubject();
-    public Subject deleteSubject();
-    public Subject editSubject();
-    public Subject findSubject();
-    public Subject findAllSubjects();
+    Subject create();
+
+    Subject delete();
+
+    Subject edit();
+
+    Subject find();
+
+    Subject findAll();
 
 }

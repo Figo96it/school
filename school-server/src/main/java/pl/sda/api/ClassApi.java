@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface ClassApi {
 
-    public Class createClass();
-    public Class deleteClass();
-    public Class editClass();
-    public List<Class> findAllClasses();
-    public Class findClass();
+    Class create();
+
+    Class delete();
+
+    Class edit();
+
+    List<Class> findAll();
+
+    Class find();
 }

@@ -15,31 +15,31 @@ public class ClassController implements ClassApi {
 
     @Override
     @PostMapping("class/create")
-    public Class createClass() {
+    public Class create() {
         return null;
     }
 
     @Override
     @PostMapping("class/delete")
-    public Class deleteClass() {
+    public Class delete() {
         return null;
     }
 
     @Override
     @PostMapping("class/edit")
-    public Class editClass() {
+    public Class edit() {
         return null;
     }
 
     @Override
     @GetMapping("class/findAll")
-    public List<Class> findAllClasses() {
+    public List<Class> findAll() {
         return null;
     }
 
     @Override
     @GetMapping("class/find")
-    public Class findClass() {
+    public Class find() {
         return null;
     }
 }
