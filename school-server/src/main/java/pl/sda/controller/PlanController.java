@@ -1,9 +1,11 @@
 package pl.sda.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.PlanApi;
+import pl.sda.manager.PlanManager;
 import pl.sda.model.Plan;
 
 import java.util.List;
@@ -11,33 +13,40 @@ import java.util.List;
 @RestController
 public class PlanController implements PlanApi {
 
+    private PlanManager planManager;
+
+    @Autowired
+    public PlanController(PlanManager planManager) {
+        this.planManager = planManager;
+    }
+
     @Override
     @PostMapping("plan/add")
     public Plan create() {
-        return null;
+        return planManager.create();
     }
 
     @Override
     @PostMapping("plan/delete")
     public Plan delete() {
-        return null;
+        return planManager.delete();
     }
 
     @Override
     @PostMapping("plan/edit")
     public Plan edit() {
-        return null;
+        return planManager.edit();
     }
 
     @Override
     @GetMapping("plan/find")
     public Plan find() {
-        return null;
+        return planManager.find();
     }
 
     @Override
     @GetMapping("plan/findAll")
     public List<Plan> findAll() {
-        return null;
+        return planManager.findAll();
     }
 }

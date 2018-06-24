@@ -2,6 +2,8 @@ package pl.sda.api;
 
 import pl.sda.model.Subject;
 
+import java.util.List;
+
 public interface SubjectApi {
 
     Subject create();
@@ -12,6 +14,6 @@ public interface SubjectApi {
 
     Subject find();
 
-    Subject findAll();
+    List<Subject> findAll();
 
 }
