@@ -29,13 +29,13 @@ public class SchoolController implements SchoolApi {
     @Override
     @PostMapping("school/update")
     public School update() {
-        return schoolManager.delete();
+        return schoolManager.edit();
     }
 
     @Override
     @PostMapping("school/delete")
     public School delete() {
-        return schoolManager.edit();
+        return schoolManager.delete();
     }
 
     @Override

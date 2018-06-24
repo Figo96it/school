@@ -29,13 +29,13 @@ public class EmployeeController implements EmployeeApi {
     @Override
     @PostMapping("employee/update")
     public Employee update() {
-        return employeeManager.delete();
+        return employeeManager.edit();
     }
 
     @Override
     @PostMapping("employee/delete")
     public Employee delete() {
-        return employeeManager.edit();
+        return employeeManager.delete();
     }
 
     @Override

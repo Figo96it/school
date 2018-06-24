@@ -29,13 +29,13 @@ public class GradeController implements GradeApi {
     @Override
     @PostMapping("grade/update")
     public Grade update() {
-        return gradeManager.delete();
+        return gradeManager.edit();
     }
 
     @Override
     @PostMapping("grade/delete")
     public Grade delete() {
-        return gradeManager.edit();
+        return gradeManager.delete();
     }
 
     @Override
