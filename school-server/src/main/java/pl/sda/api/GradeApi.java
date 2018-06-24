@@ -7,8 +7,12 @@ import java.util.List;
 public interface GradeApi {
 
     Grade create();
+
     Grade update();
+
     Grade delete();
+
     Grade find();
+
     List<Grade> findAll();
 }

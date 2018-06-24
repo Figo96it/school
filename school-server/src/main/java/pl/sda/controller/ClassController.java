@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 public class ClassController implements ClassApi {
 
-
     @Override
     @PostMapping("class/create")
     public Class create() {

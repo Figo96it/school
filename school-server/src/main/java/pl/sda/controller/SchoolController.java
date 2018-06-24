@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 public class SchoolController implements SchoolApi {
+
     @Override
     @PostMapping("school/create")
     public School create() {

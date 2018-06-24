@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 public class GradeController implements GradeApi {
+
     @Override
     @PostMapping("grade/create")
     public Grade create() {
