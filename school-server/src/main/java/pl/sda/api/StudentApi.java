@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface StudentApi {
 
-    Student createStudent();
-    Student updateStudent();
-    Student deleteStudent();
-    Student findStudent();
+    Student create();
+    Student update();
+    Student delete();
+    Student find();
     List<Student> findAll();
 }

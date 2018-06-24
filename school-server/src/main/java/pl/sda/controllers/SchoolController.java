@@ -12,25 +12,25 @@ import java.util.List;
 public class SchoolController implements SchoolApi {
     @Override
     @PostMapping("school/create")
-    public School createSchool() {
+    public School create() {
         return null;
     }
 
     @Override
     @PostMapping("school/update")
-    public School updateSchool() {
+    public School update() {
         return null;
     }
 
     @Override
     @PostMapping("school/delete")
-    public School deleteSchool() {
+    public School delete() {
         return null;
     }
 
     @Override
     @GetMapping("school/find")
-    public School findSchool() {
+    public School find() {
         return null;
     }
 

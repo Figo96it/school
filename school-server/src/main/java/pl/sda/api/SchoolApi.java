@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface SchoolApi {
 
-    School createSchool();
-    School updateSchool();
-    School deleteSchool();
-    School findSchool();
+    School create();
+    School update();
+    School delete();
+    School find();
     List<School> findAll();
 }

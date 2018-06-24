@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface GradeApi {
 
-    Grade createGrade();
-    Grade updateGrade();
-    Grade deleteGrade();
-    Grade findGrade();
+    Grade create();
+    Grade update();
+    Grade delete();
+    Grade find();
     List<Grade> findAll();
 }

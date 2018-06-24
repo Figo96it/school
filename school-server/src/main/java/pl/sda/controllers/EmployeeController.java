@@ -12,25 +12,25 @@ import java.util.List;
 public class EmployeeController implements EmployeeApi {
     @Override
     @PostMapping("employee/create")
-    public Employee createEmployee() {
+    public Employee create() {
         return null;
     }
 
     @Override
     @PostMapping("employee/update")
-    public Employee updateEmployee() {
+    public Employee update() {
         return null;
     }
 
     @Override
     @PostMapping("employee/delete")
-    public Employee deleteEmployee() {
+    public Employee delete() {
         return null;
     }
 
     @Override
     @GetMapping("employee/find")
-    public Employee findEmployee() {
+    public Employee find() {
         return null;
     }
 

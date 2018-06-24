@@ -12,25 +12,25 @@ import java.util.List;
 public class GradeController implements GradeApi {
     @Override
     @PostMapping("grade/create")
-    public Grade createGrade() {
+    public Grade create() {
         return null;
     }
 
     @Override
     @PostMapping("grade/update")
-    public Grade updateGrade() {
+    public Grade update() {
         return null;
     }
 
     @Override
     @PostMapping("grade/delete")
-    public Grade deleteGrade() {
+    public Grade delete() {
         return null;
     }
 
     @Override
     @GetMapping("grade/find")
-    public Grade findGrade() {
+    public Grade find() {
         return null;
     }
 

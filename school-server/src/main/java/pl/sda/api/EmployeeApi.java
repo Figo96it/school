@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface EmployeeApi {
 
-    Employee createEmployee();
-    Employee updateEmployee();
-    Employee deleteEmployee();
-    Employee findEmployee();
+    Employee create();
+    Employee update();
+    Employee delete();
+    Employee find();
     List<Employee> findAll();
 }

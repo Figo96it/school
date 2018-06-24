@@ -13,30 +13,30 @@ public class StudentController implements StudentApi {
 
     @Override
     @PostMapping("student/create")
-    public Student createStudent() {
+    public Student create() {
         return null;
     }
 
     @Override
     @PostMapping("student/update")
-    public Student updateStudent() {
+    public Student update() {
         return null;
     }
 
     @Override
-    @PostMapping("school/delete")
-    public Student deleteStudent() {
+    @PostMapping("student/delete")
+    public Student delete() {
         return null;
     }
 
     @Override
-    @GetMapping("school/find")
-    public Student findStudent() {
+    @GetMapping("student/find")
+    public Student find() {
         return null;
     }
 
     @Override
-    @GetMapping("school/findAll")
+    @GetMapping("student/findAll")
     public List<Student> findAll() {
         return null;
     }
