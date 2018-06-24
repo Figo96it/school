@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS parents
+CREATE TABLE IF NOT EXISTS parent
 (
   id           INT AUTO_INCREMENT PRIMARY KEY,
   first_name   VARCHAR(20),
@@ -8,5 +8,3 @@ CREATE TABLE IF NOT EXISTS parents
   mobile_phone VARCHAR(9),
   mail         VARCHAR(30)
 )
-  ENGINE = InnoDB;
-

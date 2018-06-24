@@ -3,41 +3,41 @@ package pl.sda.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sda.api.ParentsApi;
-import pl.sda.model.Parents;
+import pl.sda.api.ParentApi;
+import pl.sda.model.Parent;
 
 import java.util.List;
 
 @RestController
-public class ParentsController implements ParentsApi {
+public class ParentController implements ParentApi {
 
     @Override
-    @PostMapping("parents/create")
-    public Parents create() {
+    @PostMapping("parent/create")
+    public Parent create() {
         return null;
     }
 
     @Override
-    @PostMapping("parents/delete")
-    public Parents delete() {
+    @PostMapping("parent/delete")
+    public Parent delete() {
         return null;
     }
 
     @Override
-    @PostMapping("parents/edit")
-    public Parents edit() {
+    @PostMapping("parent/edit")
+    public Parent edit() {
         return null;
     }
 
     @Override
-    @GetMapping("parents/find")
-    public Parents find() {
+    @GetMapping("parent/find")
+    public Parent find() {
         return null;
     }
 
     @Override
-    @GetMapping("parents/findAll")
-    public List<Parents> findAll() {
+    @GetMapping("parent/findAll")
+    public List<Parent> findAll() {
         return null;
     }
 }
