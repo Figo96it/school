@@ -1,41 +1,52 @@
 package pl.sda.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.SubjectApi;
+import pl.sda.manager.SubjectManager;
 import pl.sda.model.Subject;
+
+import java.util.List;
 
 @RestController
 public class SubjectController implements SubjectApi {
 
+    private SubjectManager subjectManager;
+
+    @Autowired
+    public SubjectController(SubjectManager subjectManager) {
+        this.subjectManager = subjectManager;
+    }
+
     @Override
     @PostMapping("subject/add")
     public Subject create() {
-        return null;
+        return subjectManager.create();
     }
 
     @Override
     @PostMapping("subject/delete")
     public Subject delete() {
-        return null;
+        return subjectManager.delete();
     }
 
     @Override
     @PostMapping("subject/edit")
     public Subject edit() {
-        return null;
+        return subjectManager.edit();
     }
 
     @Override
     @GetMapping("subject/find")
     public Subject find() {
-        return null;
+        return subjectManager.find();
     }
 
     @Override
     @GetMapping("subject/findAll")
-    public Subject findAll() {
-        return null;
+    public List<Subject> findAll() {
+        return subjectManager.findAll();
     }
 }

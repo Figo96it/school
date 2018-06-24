@@ -1,42 +1,52 @@
-package pl.sda.controllers;
+package pl.sda.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.SchoolApi;
+import pl.sda.manager.SchoolManager;
 import pl.sda.model.School;
 
 import java.util.List;
 
 @RestController
 public class SchoolController implements SchoolApi {
+
+    private SchoolManager schoolManager;
+
+    @Autowired
+    public SchoolController(SchoolManager schoolManager) {
+        this.schoolManager = schoolManager;
+    }
+
     @Override
     @PostMapping("school/create")
     public School create() {
-        return null;
+        return schoolManager.create();
     }
 
     @Override
     @PostMapping("school/update")
     public School update() {
-        return null;
+        return schoolManager.delete();
     }
 
     @Override
     @PostMapping("school/delete")
     public School delete() {
-        return null;
+        return schoolManager.edit();
     }
 
     @Override
     @GetMapping("school/find")
     public School find() {
-        return null;
+        return schoolManager.find();
     }
 
     @Override
     @GetMapping("school/findAll")
     public List<School> findAll() {
-        return null;
+        return schoolManager.findAll();
     }
 }
