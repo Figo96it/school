@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS class (
   id_school     INT         NOT NULL,
   class_name    VARCHAR(45) NOT NULL,
   class_year    YEAR,
-  form_tutor_id INT         NOT NULL,
+  id_form_tutor INT         NOT NULL,
   PRIMARY KEY (id_class)
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS employee (
   first_name  VARCHAR(45)  DEFAULT NULL,
   last_name   VARCHAR(45)  DEFAULT NULL,
   position    VARCHAR(45)  DEFAULT NULL,
-  id_class    VARCHAR(45)  DEFAULT NULL,
+  id_class    INT  DEFAULT NULL,
   PRIMARY KEY (id_employee)
 );
 
