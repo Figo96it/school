@@ -46,7 +46,6 @@ ALTER TABLE plan
 CREATE TABLE school_subject (
   id           INT         NOT NULL AUTO_INCREMENT,
   subject_name VARCHAR(45) NOT NULL,
-  adress       VARCHAR(45) NOT NULL,
   id_plan      INT         NOT NULL,
   PRIMARY KEY (id)
 );
@@ -70,8 +69,7 @@ ALTER TABLE grade
 CREATE TABLE IF NOT EXISTS student_grade (
   id         INT PRIMARY KEY AUTO_INCREMENT,
   id_student INT NOT NULL,
-  id_grade   INT NOT NULL,
-  grade      INT
+  id_grade   INT NOT NULL
 );
 
 ALTER TABLE grade
