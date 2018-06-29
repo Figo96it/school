@@ -8,7 +8,6 @@ import java.util.List;
 @Component
 public class ParentManager {
 
-
     public Parent create() {
         return null;
     }
