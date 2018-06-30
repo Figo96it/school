@@ -29,6 +29,7 @@ public class ModelAndDatabaseTests {
         assertEquals(foundSubject.getId(), subject.getId());
     }
 
+    // TO DO - @PendingImplementation / More ASSERTÓW
 
 //    @Test
 //    public void addClassObjectToDatabase_whenSaveAndFound_thenOK(){
