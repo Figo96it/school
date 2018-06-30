@@ -22,31 +22,31 @@ public class ClassroomController implements ClassroomApi {
     }
 
     @Override
-    @PostMapping("class/create")
+    @PostMapping("classroom/create")
     public Classroom create() {
         return classroomManager.create();
     }
 
     @Override
-    @PostMapping("class/delete")
+    @PostMapping("classroom/delete")
     public Classroom delete() {
         return classroomManager.delete();
     }
 
     @Override
-    @PostMapping("class/edit")
+    @PostMapping("classroom/edit")
     public Classroom edit() {
         return classroomManager.edit();
     }
 
     @Override
-    @GetMapping("class/findAll")
+    @GetMapping("classroom/findAll")
     public List<Classroom> findAll() {
         return classroomManager.findAll();
     }
 
     @Override
-    @GetMapping("class/find")
+    @GetMapping("classroom/find")
     public Classroom find() {
         return classroomManager.find();
     }
