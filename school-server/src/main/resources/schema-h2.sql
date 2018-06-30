@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS school (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS class (
+CREATE TABLE IF NOT EXISTS classroom (
   id            INT         NOT NULL AUTO_INCREMENT,
   id_school     INT         NOT NULL,
   class_name    VARCHAR(45) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS class (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE class
+ALTER TABLE classroom
   ADD FOREIGN KEY (id_school) REFERENCES school (id)
   ON DELETE NO ACTION;
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS employee (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE class
+ALTER TABLE classroom
   ADD FOREIGN KEY (id_form_tutor) REFERENCES employee (id)
   ON DELETE NO ACTION;
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS plan (
 );
 
 ALTER TABLE plan
-  ADD FOREIGN KEY (id_class) REFERENCES class (id)
+  ADD FOREIGN KEY (id_class) REFERENCES classroom (id)
   ON DELETE NO ACTION;
 
 CREATE TABLE school_subject (
@@ -103,6 +103,6 @@ ALTER TABLE parent
   ON DELETE NO ACTION;
 
 ALTER TABLE student
-  ADD FOREIGN KEY (id_class) REFERENCES class (id)
+  ADD FOREIGN KEY (id_class) REFERENCES classroom (id)
   ON DELETE NO ACTION;
 

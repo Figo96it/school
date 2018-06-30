@@ -1,30 +1,30 @@
 package pl.sda.manager;
 
 import org.springframework.stereotype.Component;
-import pl.sda.model.Class;
+import pl.sda.model.Classroom;
 
 import java.util.List;
 
 @Component
-public class ClassManager {
+public class ClassroomManager {
 
-    public Class create() {
+    public Classroom create() {
         return null;
     }
 
-    public Class delete() {
+    public Classroom delete() {
         return null;
     }
 
-    public Class edit() {
+    public Classroom edit() {
         return null;
     }
 
-    public List<Class> findAll() {
+    public List<Classroom> findAll() {
         return null;
     }
 
-    public Class find() {
+    public Classroom find() {
         return null;
     }
 }
