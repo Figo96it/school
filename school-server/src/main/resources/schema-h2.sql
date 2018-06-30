@@ -57,7 +57,6 @@ ALTER TABLE school_subject
 CREATE TABLE IF NOT EXISTS grade (
   id               INT PRIMARY KEY AUTO_INCREMENT,
   id_subject       INT NOT NULL,
-  id_student_grade INT NOT NULL,
   grade            INT(1)
 );
 
@@ -72,8 +71,8 @@ CREATE TABLE IF NOT EXISTS student_grade (
   id_grade   INT NOT NULL
 );
 
-ALTER TABLE grade
-  ADD FOREIGN KEY (id_student_grade) REFERENCES student_grade (id)
+ALTER TABLE student_grade
+  ADD FOREIGN KEY (id_grade) REFERENCES grade (id)
   ON DELETE NO ACTION;
 
 CREATE TABLE student (
