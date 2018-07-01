@@ -46,16 +46,17 @@ public class DataInitTool {
     @PostConstruct
     public void initData() {
     if(usedDataInitTool){
-        School fakeSchool = MockDataResolver.createFakeSchool();
+        MockDataResolver.createFakeDbDataWithRelations();
+        List<School> fakeSchoolList = MockDataResolver.getSchoolList();
         List<Classroom> allClassrooms = MockDataResolver.findAllClassrooms();
         List<Employee> allEmployees = MockDataResolver.findAllEmployees();
         List<Grade> allGrades = MockDataResolver.findAllGrades();
         List<Parent> allParents = MockDataResolver.findAllParents();
         List<Student> allStudents = MockDataResolver.findAllStudents();
         List<Subject> allSubjects = MockDataResolver.findAllSubjects();
-        MockDataResolver.createFakeDbDataWithRelations();
 
-        schoolRepository.save(fakeSchool);
+
+        schoolRepository.save(fakeSchoolList);
         classroomRepository.save(allClassrooms);
         employeeRepository.save(allEmployees);
         gradeRepository.save(allGrades);

@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS school (
 
 CREATE TABLE IF NOT EXISTS classroom (
   id            INT         NOT NULL AUTO_INCREMENT,
-  id_school     INT         NOT NULL,
+  id_school     INT,
   class_name    VARCHAR(45) NOT NULL,
   class_year    YEAR,
   id_form_tutor INT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS classroom (
 
 ALTER TABLE classroom
   ADD FOREIGN KEY (id_school) REFERENCES school (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE ;
 
 CREATE TABLE IF NOT EXISTS employee (
   id         INT NOT NULL AUTO_INCREMENT,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS employee (
 
 ALTER TABLE classroom
   ADD FOREIGN KEY (id_form_tutor) REFERENCES employee (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE;
 
 CREATE TABLE IF NOT EXISTS plan (
   id       INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS plan (
 
 ALTER TABLE plan
   ADD FOREIGN KEY (id_class) REFERENCES classroom (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE ;
 
 CREATE TABLE school_subject (
   id           INT         NOT NULL AUTO_INCREMENT,
@@ -52,7 +52,7 @@ CREATE TABLE school_subject (
 
 ALTER TABLE school_subject
   ADD FOREIGN KEY (id_plan) REFERENCES plan (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE;
 
 CREATE TABLE IF NOT EXISTS grade (
   id               INT PRIMARY KEY AUTO_INCREMENT,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS grade (
 
 ALTER TABLE grade
   ADD FOREIGN KEY (id_subject) REFERENCES school_subject (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE;
 
 CREATE TABLE IF NOT EXISTS student_grade (
   id         INT PRIMARY KEY AUTO_INCREMENT,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS student_grade (
 
 ALTER TABLE student_grade
   ADD FOREIGN KEY (id_grade) REFERENCES grade (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE;
 
 CREATE TABLE student (
   id         INT AUTO_INCREMENT,
@@ -85,7 +85,7 @@ CREATE TABLE student (
 
 ALTER TABLE student_grade
   ADD FOREIGN KEY (id_student) REFERENCES student (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE ;
 
 CREATE TABLE IF NOT EXISTS parent (
   id           INT AUTO_INCREMENT PRIMARY KEY,
@@ -99,9 +99,9 @@ CREATE TABLE IF NOT EXISTS parent (
 
 ALTER TABLE parent
   ADD FOREIGN KEY (id_student) REFERENCES student (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE ;
 
 ALTER TABLE student
   ADD FOREIGN KEY (id_class) REFERENCES classroom (id)
-  ON DELETE NO ACTION;
+  ON DELETE CASCADE ;
 
