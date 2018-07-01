@@ -22,26 +22,27 @@ public class ParentController implements ParentApi {
 
     @Override
     @PostMapping("parent/create")
-    public Parent create() {
-        return parentManager.create();
+    public Parent create(Parent parent) {
+        return parentManager.create(parent);
     }
 
     @Override
     @PostMapping("parent/delete")
-    public Parent delete() {
-        return parentManager.delete();
+    public Integer delete(Integer id) {
+         parentManager.delete(id);
+         return id;
     }
 
     @Override
     @PostMapping("parent/edit")
-    public Parent edit() {
-        return parentManager.edit();
+    public Parent edit(Parent parent) {
+        return parentManager.edit(parent);
     }
 
     @Override
     @GetMapping("parent/find")
-    public Parent find() {
-        return parentManager.find();
+    public Parent find(Integer id) {
+        return parentManager.find(id);
     }
 
     @Override

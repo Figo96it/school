@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface GradeApi {
 
-    Grade create();
+    Grade create(Grade grade);
 
-    Grade update();
+    Integer delete(Integer id);
 
-    Grade delete();
+    Grade edit(Grade grade);
 
-    Grade find();
+    Grade find(Integer id);
 
     List<Grade> findAll();
 }

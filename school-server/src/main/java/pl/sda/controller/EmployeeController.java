@@ -22,26 +22,27 @@ public class EmployeeController implements EmployeeApi {
 
     @Override
     @PostMapping("employee/create")
-    public Employee create() {
-        return employeeManager.create();
+    public Employee create(Employee employee) {
+        return employeeManager.create(employee);
     }
 
     @Override
     @PostMapping("employee/update")
-    public Employee update() {
-        return employeeManager.edit();
+    public Employee edit(Employee employee) {
+        return employeeManager.edit(employee);
     }
 
     @Override
     @PostMapping("employee/delete")
-    public Employee delete() {
-        return employeeManager.delete();
+    public Integer delete(Integer id) {
+        employeeManager.delete(id);
+        return id;
     }
 
     @Override
     @GetMapping("employee/find")
-    public Employee find() {
-        return employeeManager.find();
+    public Employee find(Integer id) {
+        return employeeManager.find(id);
     }
 
     @Override

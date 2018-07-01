@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface StudentApi {
 
-    Student create();
+    Student create(Student student);
 
-    Student update();
+    Integer delete(Integer id);
 
-    Student delete();
+    Student edit(Student student);
 
-    Student find();
+    Student find(Integer id);
 
     List<Student> findAll();
 }
