@@ -22,26 +22,27 @@ public class SchoolController implements SchoolApi {
 
     @Override
     @PostMapping("school/create")
-    public School create() {
-        return schoolManager.create();
+    public School create(School school) {
+        return schoolManager.create(school);
     }
 
     @Override
     @PostMapping("school/update")
-    public School update() {
-        return schoolManager.edit();
+    public School edit(School school) {
+        return schoolManager.edit(school);
     }
 
     @Override
     @PostMapping("school/delete")
-    public School delete() {
-        return schoolManager.delete();
+    public Integer delete(Integer id) {
+        schoolManager.delete(id);
+        return id;
     }
 
     @Override
     @GetMapping("school/find")
-    public School find() {
-        return schoolManager.find();
+    public School find(Integer id) {
+        return schoolManager.find(id);
     }
 
     @Override

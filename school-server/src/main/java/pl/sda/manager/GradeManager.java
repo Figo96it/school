@@ -1,29 +1,40 @@
 package pl.sda.manager;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.sda.model.Grade;
+import pl.sda.repository.GradeRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class GradeManager {
-    public Grade create() {
-        return null;
+    @Autowired
+    GradeRepository gradeRepository;
+
+    public Grade create(Grade grade) {
+        return gradeRepository.save(grade);
     }
 
-    public Grade delete() {
-        return null;
+    public Integer delete(Integer id) {
+        gradeRepository.delete(id);
+        return id;
     }
 
-    public Grade edit() {
-        return null;
+    public Grade edit(Grade grade) {
+        return gradeRepository.save(grade);
     }
 
-    public Grade find() {
-        return null;
+    public Grade find(Integer id) {
+        return gradeRepository.findOne(id);
     }
 
     public List<Grade> findAll() {
-        return null;
+        return StreamSupport
+                .stream(gradeRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

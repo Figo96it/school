@@ -22,26 +22,27 @@ public class PlanController implements PlanApi {
 
     @Override
     @PostMapping("plan/add")
-    public Plan create() {
-        return planManager.create();
+    public Plan create(Plan plan) {
+        return planManager.create(plan);
     }
 
     @Override
     @PostMapping("plan/delete")
-    public Plan delete() {
-        return planManager.delete();
+    public Integer delete(Integer id) {
+        planManager.delete(id);
+        return id;
     }
 
     @Override
     @PostMapping("plan/edit")
-    public Plan edit() {
-        return planManager.edit();
+    public Plan edit(Plan plan) {
+        return planManager.edit(plan);
     }
 
     @Override
     @GetMapping("plan/find")
-    public Plan find() {
-        return planManager.find();
+    public Plan find(Integer id) {
+        return planManager.find(id);
     }
 
     @Override
