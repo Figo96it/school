@@ -40,8 +40,8 @@ public class ReportGenerator {
                 "We are almost proud of their accomplishments.\n");
     }
 
-    // Beginning of every minute
-    @Scheduled(cron = "1 * * * * *")
+    // every minute
+    @Scheduled(cron = "0 1 * * * *")
     public void generateBestGradesReportEver() {
         // TODO: SWITCH TO PROPER REPOSITORY!!!
         List<StudentGrade> allStudentGrades = MockDataResolver.getStudentGradeList();
