@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.Classroom;
+import pl.sda.model.Employee;
 import pl.sda.model.School;
 
 import java.util.List;
@@ -27,19 +28,21 @@ ClassroomRepositoryTest {
 
     private List<Classroom> allClassrooms;
 
+
     @Before()
     public void prepareMethod(){
-       // schoolRepository.deleteAll();
         School fakeSchool = MockDataResolver.createFakeSchool();
         allClassrooms = MockDataResolver.findAllClassrooms();
-        allClassrooms.forEach(classroom -> classroom.setSchool(fakeSchool));
+        List<Employee> allEmployees = MockDataResolver.findAllEmployees();
+        allClassrooms.forEach(classroom -> classroom.setSchool(null));
+        allClassrooms.forEach(classroom -> classroom.setFormTutor(null));
         schoolRepository.save(fakeSchool);
         classroomRepository.save(allClassrooms);
     }
 
     @Test
     public void createNewClassroom(){
-        assertEquals(10,classroomRepository.count());
+        assertEquals(100,classroomRepository.count());
     }
 
     @Test
@@ -52,6 +55,6 @@ ClassroomRepositoryTest {
     public void deleteFirstClassroomItem(){
         Classroom randomClassroom = classroomRepository.findOne(2);
         classroomRepository.delete(randomClassroom);
-        assertEquals(9,classroomRepository.count());
+        assertEquals(99,classroomRepository.count());
     }
 }
