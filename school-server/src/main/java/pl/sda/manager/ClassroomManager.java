@@ -6,6 +6,9 @@ import pl.sda.model.Classroom;
 import pl.sda.repository.ClassroomRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class ClassroomManager {
@@ -16,19 +19,22 @@ public class ClassroomManager {
         return classroomRepository.save(classroom);
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         classroomRepository.delete(id);
+        return id;
     }
 
     public Classroom edit(Classroom classroom) {
         return classroomRepository.save(classroom);
     }
 
-    public List<Classroom> findAll() {
-        return (List<Classroom>) classroomRepository.findAll();
-    }
-
     public Classroom find(Integer id) {
         return classroomRepository.findOne(id);
+    }
+
+    public List<Classroom> findAll() {
+        return StreamSupport
+                .stream(classroomRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

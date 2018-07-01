@@ -28,8 +28,9 @@ public class SubjectController implements SubjectApi {
 
     @Override
     @PostMapping("subject/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         subjectManager.delete(id);
+        return id;
     }
 
     @Override

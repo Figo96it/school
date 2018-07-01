@@ -8,7 +8,7 @@ public interface EmployeeApi {
 
     Employee create(Employee employee);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Employee edit(Employee employee);
 

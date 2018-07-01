@@ -34,8 +34,9 @@ public class EmployeeController implements EmployeeApi {
 
     @Override
     @PostMapping("employee/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         employeeManager.delete(id);
+        return id;
     }
 
     @Override

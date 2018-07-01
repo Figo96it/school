@@ -28,8 +28,9 @@ public class PlanController implements PlanApi {
 
     @Override
     @PostMapping("plan/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         planManager.delete(id);
+        return id;
     }
 
     @Override

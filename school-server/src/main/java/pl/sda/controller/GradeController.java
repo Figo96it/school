@@ -8,7 +8,6 @@ import pl.sda.api.GradeApi;
 import pl.sda.manager.GradeManager;
 import pl.sda.model.Grade;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RestController
@@ -35,8 +34,9 @@ public class GradeController implements GradeApi {
 
     @Override
     @PostMapping("grade/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         gradeManager.delete(id);
+        return id;
     }
 
     @Override

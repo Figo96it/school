@@ -10,7 +10,7 @@ public interface ParentApi {
 
     Parent create(Parent parent);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Parent edit(Parent parent);
 

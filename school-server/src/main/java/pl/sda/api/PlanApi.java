@@ -9,7 +9,7 @@ public interface PlanApi {
 
     Plan create(Plan plan);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Plan edit(Plan plan);
 

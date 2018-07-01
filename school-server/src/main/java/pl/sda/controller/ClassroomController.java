@@ -9,7 +9,6 @@ import pl.sda.api.ClassroomApi;
 import pl.sda.manager.ClassroomManager;
 import pl.sda.model.Classroom;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RestController
@@ -30,8 +29,9 @@ public class ClassroomController implements ClassroomApi {
 
     @Override
     @PostMapping("classroom/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         classroomManager.delete(id);
+        return id;
     }
 
     @Override

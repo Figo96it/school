@@ -6,6 +6,9 @@ import pl.sda.model.Student;
 import pl.sda.repository.StudentRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class StudentManager {
@@ -16,8 +19,9 @@ public class StudentManager {
         return studentRepository.save(student);
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         studentRepository.delete(id);
+        return id;
     }
 
     public Student edit(Student student) {
@@ -29,6 +33,8 @@ public class StudentManager {
     }
 
     public List<Student> findAll() {
-        return (List<Student>) studentRepository.findAll();
+        return StreamSupport
+                .stream(studentRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

@@ -6,6 +6,9 @@ import pl.sda.model.Plan;
 import pl.sda.repository.PlanRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class PlanManager {
@@ -16,8 +19,9 @@ public class PlanManager {
         return planRepository.save(plan);
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         planRepository.delete(id);
+        return id;
     }
 
     public Plan edit(Plan plan) {
@@ -29,6 +33,8 @@ public class PlanManager {
     }
 
     public List<Plan> findAll() {
-        return (List<Plan>) planRepository.findAll();
+        return StreamSupport
+                .stream(planRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

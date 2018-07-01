@@ -34,8 +34,9 @@ public class SchoolController implements SchoolApi {
 
     @Override
     @PostMapping("school/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         schoolManager.delete(id);
+        return id;
     }
 
     @Override

@@ -8,7 +8,7 @@ public interface SubjectApi {
 
     Subject create(Subject subject);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Subject edit(Subject subject);
 

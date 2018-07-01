@@ -8,7 +8,7 @@ public interface StudentApi {
 
     Student create(Student student);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Student edit(Student student);
 

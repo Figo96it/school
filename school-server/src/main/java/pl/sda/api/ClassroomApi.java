@@ -8,7 +8,7 @@ public interface ClassroomApi {
 
     Classroom create(Classroom classroom);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Classroom edit(Classroom classroom);
 

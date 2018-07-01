@@ -6,6 +6,9 @@ import pl.sda.model.Employee;
 import pl.sda.repository.EmployeeRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class EmployeeManager {
@@ -16,8 +19,9 @@ public class EmployeeManager {
         return employeeRepository.save(employee);
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         employeeRepository.delete(id);
+        return id;
     }
 
     public Employee edit(Employee employee) {
@@ -29,6 +33,8 @@ public class EmployeeManager {
     }
 
     public List<Employee> findAll() {
-        return (List<Employee>) employeeRepository.findAll();
+        return StreamSupport
+                .stream(employeeRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

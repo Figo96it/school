@@ -6,6 +6,9 @@ import pl.sda.model.Subject;
 import pl.sda.repository.SubjectRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class SubjectManager {
@@ -16,8 +19,9 @@ public class SubjectManager {
         return subjectRepository.save(subject);
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         subjectRepository.delete(id);
+        return id;
     }
 
     public Subject edit(Subject subject) {
@@ -29,6 +33,8 @@ public class SubjectManager {
     }
 
     public List<Subject> findAll() {
-        return (List<Subject>) subjectRepository.findAll();
+        return StreamSupport
+                .stream(subjectRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

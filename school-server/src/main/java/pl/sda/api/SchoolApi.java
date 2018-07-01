@@ -8,7 +8,7 @@ public interface SchoolApi {
 
     School create(School school);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     School edit(School school);
 

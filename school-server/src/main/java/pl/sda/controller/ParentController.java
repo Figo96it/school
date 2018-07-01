@@ -28,8 +28,9 @@ public class ParentController implements ParentApi {
 
     @Override
     @PostMapping("parent/delete")
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
          parentManager.delete(id);
+         return id;
     }
 
     @Override

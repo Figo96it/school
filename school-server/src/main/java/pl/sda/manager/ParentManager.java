@@ -6,6 +6,9 @@ import pl.sda.model.Parent;
 import pl.sda.repository.ParentRepository;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class ParentManager {
@@ -16,8 +19,9 @@ public class ParentManager {
         return parentRepository.save(parent);
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
         parentRepository.delete(id);
+        return id;
     }
 
     public Parent edit(Parent parent) {
@@ -29,6 +33,8 @@ public class ParentManager {
     }
 
     public List<Parent> findAll() {
-        return (List<Parent>) parentRepository.findAll();
+        return StreamSupport
+                .stream(parentRepository.findAll().spliterator(), false).collect(toList());
+
     }
 }

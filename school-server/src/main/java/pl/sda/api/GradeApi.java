@@ -8,7 +8,7 @@ public interface GradeApi {
 
     Grade create(Grade grade);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 
     Grade edit(Grade grade);
 
