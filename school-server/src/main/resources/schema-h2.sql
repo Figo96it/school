@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS employee (
   first_name VARCHAR(45)  DEFAULT NULL,
   last_name  VARCHAR(45)  DEFAULT NULL,
   position   VARCHAR(45)  DEFAULT NULL,
+  hired_date DATE         DEFAULT NULL,
   id_class   INT          DEFAULT NULL,
 
   PRIMARY KEY (id)
@@ -66,9 +67,10 @@ ALTER TABLE grade
   ON DELETE NO ACTION;
 
 CREATE TABLE IF NOT EXISTS student_grade (
-  id         INT PRIMARY KEY AUTO_INCREMENT,
-  id_student INT NOT NULL,
-  id_grade   INT NOT NULL
+  id           INT PRIMARY KEY AUTO_INCREMENT,
+  id_student   INT  NOT NULL,
+  id_grade     INT  NOT NULL,
+  created_date DATE NOT NULL
 );
 
 ALTER TABLE student_grade
@@ -80,6 +82,7 @@ CREATE TABLE student (
   id_class   INT         NOT NULL,
   first_name VARCHAR(20) NOT NULL,
   last_name  VARCHAR(20) NOT NULL,
+  AGE        INT         NOT NULL,
   PRIMARY KEY (id)
 );
 

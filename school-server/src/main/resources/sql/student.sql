@@ -1,7 +1,8 @@
-create table student (
-  STUDENT_ID int auto_increment not null,
-  FIRST_NAME varchar(20) not null,
-  LAST_NAME varchar(20) not null,
-  primary key (STUDENT_ID)
+CREATE TABLE student (
+  STUDENT_ID INT AUTO_INCREMENT NOT NULL,
+  FIRST_NAME VARCHAR(20)        NOT NULL,
+  LAST_NAME  VARCHAR(20)        NOT NULL,
+  AGE        INT                NOT NULL,
+  PRIMARY KEY (STUDENT_ID)
 );
 
