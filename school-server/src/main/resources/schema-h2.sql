@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS classroom (
   id_school     INT         NOT NULL,
   class_name    VARCHAR(45) NOT NULL,
   class_year    YEAR,
-  id_form_tutor INT         NOT NULL,
+  id_form_tutor INT,
   PRIMARY KEY (id)
 );
 
