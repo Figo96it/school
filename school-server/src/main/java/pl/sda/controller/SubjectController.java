@@ -22,26 +22,26 @@ public class SubjectController implements SubjectApi {
 
     @Override
     @PostMapping("subject/add")
-    public Subject create() {
-        return subjectManager.create();
+    public Subject create(Subject subject) {
+        return subjectManager.create(subject);
     }
 
     @Override
     @PostMapping("subject/delete")
-    public Subject delete() {
-        return subjectManager.delete();
+    public void delete(Integer id) {
+        subjectManager.delete(id);
     }
 
     @Override
     @PostMapping("subject/edit")
-    public Subject edit() {
-        return subjectManager.edit();
+    public Subject edit(Subject subject) {
+        return subjectManager.edit(subject);
     }
 
     @Override
     @GetMapping("subject/find")
-    public Subject find() {
-        return subjectManager.find();
+    public Subject find(Integer id) {
+        return subjectManager.find(id);
     }
 
     @Override

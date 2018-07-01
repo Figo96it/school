@@ -2,17 +2,18 @@ package pl.sda.api;
 
 import pl.sda.model.Plan;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface PlanApi {
 
-    Plan create();
+    Plan create(Plan plan);
 
-    Plan delete();
+    void delete(Integer id);
 
-    Plan edit();
+    Plan edit(Plan plan);
 
-    Plan find();
+    Plan find(Integer id);
 
     List<Plan> findAll();
 }

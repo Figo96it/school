@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface ClassroomApi {
 
-    Classroom create();
+    Classroom create(Classroom classroom);
 
-    Classroom delete();
+    void delete(Integer id);
 
-    Classroom edit();
+    Classroom edit(Classroom classroom);
+
+    Classroom find(Integer id);
 
     List<Classroom> findAll();
-
-    Classroom find();
 }

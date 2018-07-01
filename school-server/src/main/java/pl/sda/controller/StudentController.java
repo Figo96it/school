@@ -22,26 +22,26 @@ public class StudentController implements StudentApi {
 
     @Override
     @PostMapping("student/create")
-    public Student create() {
-        return studentManager.create();
+    public Student create(Student student) {
+        return studentManager.create(student);
     }
 
     @Override
     @PostMapping("student/update")
-    public Student update() {
-        return studentManager.edit();
+    public Student edit(Student student) {
+        return studentManager.edit(student);
     }
 
     @Override
     @PostMapping("student/delete")
-    public Student delete() {
-        return studentManager.delete();
+    public void delete(Integer id) {
+        studentManager.delete(id);
     }
 
     @Override
     @GetMapping("student/find")
-    public Student find() {
-        return studentManager.find();
+    public Student find(Integer id) {
+        return studentManager.find(id);
     }
 
     @Override
