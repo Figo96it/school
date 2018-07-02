@@ -1,19 +1,28 @@
 package pl.sda.controller;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.StudentApi;
 import pl.sda.manager.StudentManager;
+import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.Student;
 
 import java.util.List;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 @RestController
 public class StudentController implements StudentApi {
 
+    private static final Logger logger = getLogger(SchoolController.class);
     private StudentManager studentManager;
+
+    @Value("${use.mockData}")
+    private boolean mockData;
 
     @Autowired
     public StudentController(StudentManager studentManager) {
@@ -40,14 +49,16 @@ public class StudentController implements StudentApi {
 
     @Override
     @GetMapping("student/find")
-    public Student find() {
-        return studentManager.find();
-    }
+    public Student find() { return studentManager.find(); }
 
     @Override
     @GetMapping("student/findAll")
     public List<Student> findAll() {
-        return studentManager.findAll();
+        if(mockData){
+            return MockDataResolver.findAllStudents();
+        }else{
+            return studentManager.findAll();
+        }
     }
 
 

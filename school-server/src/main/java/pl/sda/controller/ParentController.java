@@ -1,19 +1,28 @@
 package pl.sda.controller;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.ParentApi;
 import pl.sda.manager.ParentManager;
+import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.Parent;
 
 import java.util.List;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 @RestController
 public class ParentController implements ParentApi {
 
+    private static final Logger logger = getLogger(SchoolController.class);
     private ParentManager parentManager;
+
+    @Value("${use.mockData}")
+    private boolean mockData;
 
     @Autowired
     public ParentController(ParentManager parentManager) {
@@ -47,6 +56,10 @@ public class ParentController implements ParentApi {
     @Override
     @GetMapping("parent/findAll")
     public List<Parent> findAll() {
-        return parentManager.findAll();
+        if(mockData){
+            return MockDataResolver.findAllParents();
+        }else{
+            return parentManager.findAll();
+        }
     }
 }
