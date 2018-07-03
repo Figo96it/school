@@ -30,7 +30,10 @@ public class ClassroomManager {
         return null;
     }
 
-    public Classroom find() {
+    public Classroom find(Integer id) {
+        return null;
+    }
+    public Classroom findClassroomByClassName(String className) {
         return null;
     }
 }

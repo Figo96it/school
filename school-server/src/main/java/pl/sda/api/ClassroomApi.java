@@ -14,5 +14,7 @@ public interface ClassroomApi {
 
     List<Classroom> findAll();
 
-    Classroom find();
+    Classroom find(Integer id);
+
+    Classroom findClassroomByClassName(String className);
 }
