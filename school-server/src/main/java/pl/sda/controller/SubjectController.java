@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.SubjectApi;
 import pl.sda.manager.SubjectManager;
+import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.Subject;
 
 import java.util.List;
@@ -55,6 +56,10 @@ public class SubjectController implements SubjectApi {
     @Override
     @GetMapping("subject/findAll")
     public List<Subject> findAll() {
-        return subjectManager.findAll();
+        if(mockData){
+            return MockDataResolver.findAllSubjects();
+        }else{
+            return subjectManager.findAll();
+        }
     }
 }

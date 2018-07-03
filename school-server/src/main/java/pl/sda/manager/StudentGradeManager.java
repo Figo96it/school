@@ -3,42 +3,34 @@ package pl.sda.manager;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 import pl.sda.controller.SchoolController;
-import pl.sda.model.Employee;
+import pl.sda.model.StudentGrade;
 
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
 @Component
-public class EmployeeManager {
+public class StudentGradeManager {
 
     private static final Logger logger = getLogger(SchoolController.class);
 
-    public Employee create() {
+    public StudentGrade create() {
         return null;
     }
 
-    public Employee delete() {
+    public StudentGrade delete() {
         return null;
     }
 
-    public Employee edit() {
+    public StudentGrade edit() {
         return null;
     }
 
-    public Employee find(Integer id) {
+    public StudentGrade find() {
         return null;
     }
 
-    public List<Employee> findAll() {
-        return null;
-    }
-
-    public List<Employee> findEmployeeByLastName(String lastName) {
-        return null;
-    }
-
-    public List<Employee> findEmployeeByFirstName(String firstName) {
+    public List<StudentGrade> findAll() {
         return null;
     }
 }

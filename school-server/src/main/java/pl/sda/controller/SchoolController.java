@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.SchoolApi;
 import pl.sda.manager.SchoolManager;
+import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.School;
 
 import java.util.List;
@@ -55,6 +56,10 @@ public class SchoolController implements SchoolApi {
     @Override
     @GetMapping("school/findAll")
     public List<School> findAll() {
-        return schoolManager.findAll();
+        if(mockData){
+            return MockDataResolver.getSchoolsList();
+        }else{
+            return schoolManager.findAll();
+        }
     }
 }

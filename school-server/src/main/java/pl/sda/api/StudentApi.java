@@ -12,7 +12,11 @@ public interface StudentApi {
 
     Student delete();
 
-    Student find();
+    Student find(Integer studentId);
 
     List<Student> findAll();
+
+    List<Student> findStudentByFirstName(String firstName);
+
+    List<Student> findStudentByLastName(String lastName);
 }

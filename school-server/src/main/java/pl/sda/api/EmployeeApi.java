@@ -12,7 +12,11 @@ public interface EmployeeApi {
 
     Employee delete();
 
-    Employee find();
+    Employee find(Integer id);
 
     List<Employee> findAll();
+
+    List<Employee> findEmployeeByFirstName(String firstName);
+
+    List<Employee> findEmployeeByLastName(String lastName);
 }

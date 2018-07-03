@@ -26,11 +26,19 @@ public class StudentManager {
         return null;
     }
 
-    public Student find() {
+    public Student find(Integer studentId) {
+        return null;
+    }
+
+    public List<Student> findStudentByFirstName(String firstName) {
         return null;
     }
 
     public List<Student> findAll() {
+        return null;
+    }
+
+    public List<Student> findStudentByLastName(String lastName) {
         return null;
     }
 }
