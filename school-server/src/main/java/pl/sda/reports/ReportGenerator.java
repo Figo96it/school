@@ -16,8 +16,15 @@ import pl.sda.tool.GeneralFunctions;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
+
+/**
+ * Średnią Ocen uczniów z danych przedmiotów,
+ * Dane ucznia z najlepszą średnią w szkole z ostatniego miesiąca,
+ * Dane ucznia z najgorszą średnia w szkole z ostatniego miesiąca.
+ */
 @Component
 public class ReportGenerator {
 
@@ -52,4 +59,15 @@ public class ReportGenerator {
         pdfDocument.generateWith("10 of the best Students EVER", "This is the list of our best students that we ever had.\n" +
                 "We are very proud of their accomplishments.\n");
     }
+
+    public void generateSubjectAveragesReport(){
+        List<StudentGrade> allStudentGrades = MockDataResolver.getStudentGradeList();
+
+        Map<Integer, Map<String, Double>> treeMapIdStudentAverageBySubject = GeneralFunctions.createTreeMapIdStudentAverageBySubject(allStudentGrades);
+
+
+    }
+
+
+
 }
