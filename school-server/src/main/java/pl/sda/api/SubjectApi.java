@@ -12,8 +12,11 @@ public interface SubjectApi {
 
     Subject edit();
 
-    Subject find();
-
     List<Subject> findAll();
+
+    Subject find(Integer id);
+
+    Subject findSubjectByNameSubject(String subjectName);
+
 
 }

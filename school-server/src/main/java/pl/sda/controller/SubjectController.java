@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.SubjectApi;
@@ -11,6 +12,7 @@ import pl.sda.manager.SubjectManager;
 import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.Subject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -48,12 +50,6 @@ public class SubjectController implements SubjectApi {
     }
 
     @Override
-    @GetMapping("subject/find")
-    public Subject find() {
-        return subjectManager.find();
-    }
-
-    @Override
     @GetMapping("subject/findAll")
     public List<Subject> findAll() {
         if(mockData){
@@ -61,5 +57,37 @@ public class SubjectController implements SubjectApi {
         }else{
             return subjectManager.findAll();
         }
+    }
+
+    @Override
+    @GetMapping("subject/find/id/{id}")
+    public Subject find(@PathVariable Integer id) {
+        if (mockData) {
+            List<Subject> subjects = MockDataResolver.findAllSubjects();
+            for (Subject subject : subjects) {
+                if (subject.getId() == id) {
+                    return subject;
+                }
+            }
+        } else {
+            return subjectManager.find(id);
+        }
+        return null;
+    }
+
+    @Override
+    @GetMapping("subject/find/name/{subjectName}")
+    public Subject findSubjectByNameSubject(@PathVariable String subjectName) {
+        if (mockData) {
+            List<Subject> subjects = MockDataResolver.findAllSubjects();
+            for (Subject subject : subjects) {
+                if (subject.getSubjectName().equals(subjectName)) {
+                    return subject;
+                }
+            }
+        } else {
+            return subjectManager.findSubjectByNameSubject(subjectName);
+        }
+        return null;
     }
 }

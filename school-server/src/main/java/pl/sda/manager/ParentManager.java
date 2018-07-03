@@ -26,11 +26,20 @@ public class ParentManager {
         return null;
     }
 
-    public Parent find() {
+    public Parent find(Integer id) {
         return null;
     }
 
     public List<Parent> findAll() {
         return null;
     }
+
+    public List<Parent> findParentByFirstName(String firstName) {
+        return null;
+    }
+
+    public List<Parent> findParentByLastName(String surname) {
+        return null;
+    }
+
 }

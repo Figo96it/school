@@ -26,11 +26,15 @@ public class SubjectManager {
         return null;
     }
 
-    public Subject find() {
+    public Subject find(Integer id) {
         return null;
     }
 
     public List<Subject> findAll() {
+        return null;
+    }
+
+    public Subject findSubjectByNameSubject(String subjectName) {
         return null;
     }
 }

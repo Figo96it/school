@@ -13,7 +13,11 @@ public interface ParentApi {
 
     Parent edit();
 
-    Parent find();
+    Parent find(Integer id);
 
     List<Parent> findAll();
+
+    List<Parent> findParentByFirstName(String firstName);
+
+    List<Parent> findParentByLastName(String surname);
 }
