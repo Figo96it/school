@@ -23,6 +23,7 @@ public class DataInitTool {
     private SubjectRepository subjectRepository;
     private Boolean usedDataInitTool;
     private StudentGradeRepository studentGradeRepository;
+    private PlanRepository planRepository;
 
     @Autowired
     public DataInitTool(GradeRepository gradeRepository,
@@ -33,6 +34,7 @@ public class DataInitTool {
                         EmployeeRepository employeeRepository,
                         SubjectRepository subjectRepository,
                         StudentGradeRepository studentGradeRepository,
+                        PlanRepository planRepository,
                         @Value("true") Boolean usedDataInitTool
 //                        @Value("#{new Boolean('${useJpaMockedData}')}") Boolean usedDataInitTool
     ) {
@@ -45,6 +47,7 @@ public class DataInitTool {
         this.subjectRepository = subjectRepository;
         this.usedDataInitTool = usedDataInitTool;
         this.studentGradeRepository = studentGradeRepository;
+        this.planRepository = planRepository;
     }
 
     @PostConstruct
@@ -59,13 +62,15 @@ public class DataInitTool {
         List<Student> allStudents = MockDataResolver.findAllStudents();
         List<Subject> allSubjects = MockDataResolver.findAllSubjects();
         List<StudentGrade> studentGradeList = MockDataResolver.getStudentGradeList();
-
+        List<Plan> planList = MockDataResolver.getPlanList();
+        System.out.println();
         schoolRepository.save(fakeSchool);
         classroomRepository.save(allClassrooms);
         studentRepository.save(allStudents);
         parentRepository.save(allParents);
+        subjectRepository.save(allSubjects);
+//        planRepository.save(planList);
 //        studentGradeRepository.save(studentGradeList);
-//        subjectRepository.save(allSubjects);
 //        gradeRepository.save(allGrades);
     }
 
