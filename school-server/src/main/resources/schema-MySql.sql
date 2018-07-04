@@ -87,10 +87,11 @@ CREATE TABLE IF NOT EXISTS parent (
   mobile_phone VARCHAR(9),
   mail         VARCHAR(30)
 );
-
+/*
 ALTER TABLE grade
   ADD FOREIGN KEY (id_subject) REFERENCES school_subject (id)
 ON DELETE NO ACTION;
+*/
 
 ALTER TABLE parent
   ADD FOREIGN KEY (id_student) REFERENCES student (id)
@@ -101,7 +102,6 @@ ALTER TABLE student
 ON DELETE NO ACTION;
 
 
-
 ALTER TABLE student_grade
   ADD FOREIGN KEY (id_grade) REFERENCES grade (id)
 ON DELETE NO ACTION;
@@ -109,7 +109,6 @@ ON DELETE NO ACTION;
 ALTER TABLE student_grade
   ADD FOREIGN KEY (id_student) REFERENCES student (id)
 ON DELETE NO ACTION;
-
 
 ALTER TABLE school_subject
   ADD FOREIGN KEY (id_plan) REFERENCES plan (id)
