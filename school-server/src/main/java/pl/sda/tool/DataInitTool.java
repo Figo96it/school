@@ -69,9 +69,9 @@ public class DataInitTool {
         studentRepository.save(allStudents);
         parentRepository.save(allParents);
         subjectRepository.save(allSubjects);
-//        planRepository.save(planList);
-//        studentGradeRepository.save(studentGradeList);
-//        gradeRepository.save(allGrades);
+        planRepository.save(planList);
+        studentGradeRepository.save(studentGradeList);
+        gradeRepository.save(allGrades);
     }
 
 
