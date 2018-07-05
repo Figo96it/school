@@ -32,13 +32,23 @@ public class GeneralFunctions {
                 .collect(Collectors.toList());
     }
 
-    public static Map<Integer, Map<String, Double>> createTreeMapIdStudentAverageBySubject(List<StudentGrade> studentGrades) {
-        // id student grade
-        Map<Integer, Map<String, List<Integer>>> subjectGradesPerStudentId = new HashMap<>();
-        createIdSubjectGradesMap(subjectGradesPerStudentId, studentGrades);
-
+    public static Map<Student, Map<String, Double>> getStudentsWithSubjectsAveragesFrom(List<StudentGrade> studentGrades) {
         Map<Integer, Student> idStudentMap = new HashMap<>();
         createIdStudentMap(idStudentMap, studentGrades);
+
+        Map<Integer, Map<String, Double>> treeMapIdStudentAverageBySubject = createTreeMapIdStudentAverageBySubject(studentGrades);
+
+        Map<Student, Map<String, Double>> resultMap = new HashMap<>();
+        for (Map.Entry<Integer, Map<String, Double>> entry : treeMapIdStudentAverageBySubject.entrySet()) {
+            resultMap.putIfAbsent(idStudentMap.get(entry.getKey()), entry.getValue());
+        }
+        return resultMap;
+    }
+
+
+    public static Map<Integer, Map<String, Double>> createTreeMapIdStudentAverageBySubject(List<StudentGrade> studentGrades) {
+        Map<Integer, Map<String, List<Integer>>> subjectGradesPerStudentId = new HashMap<>();
+        createIdSubjectGradesMap(subjectGradesPerStudentId, studentGrades);
 
         Map<Integer, Map<String, Double>> subjectAveragePerStudentId = new HashMap<>();
 
@@ -93,8 +103,8 @@ public class GeneralFunctions {
     private static void fillSubjectAveragesMapPerStudentId(Map<Integer, Map<String, Double>> subjectAveragePerStudentId, Map<Integer, Map<String, List<Integer>>> subjectGradesPerStudentId) {
         for (Map.Entry<Integer, Map<String, List<Integer>>> entry : subjectGradesPerStudentId.entrySet()) {
             Map<String, List<Integer>> subjectGradesMap = entry.getValue();
-            subjectAveragePerStudentId.putIfAbsent(entry.getKey(), new HashMap<>());
-            Map<String, Double> subjectAverage = subjectAveragePerStudentId.compute(entry.getKey(), (k, v) -> new HashMap<>(v));
+            subjectAveragePerStudentId.putIfAbsent(entry.getKey(), new TreeMap<>());
+            Map<String, Double> subjectAverage = subjectAveragePerStudentId.compute(entry.getKey(), (k, v) -> new TreeMap<>(v));
             fillSubjectAveragesMap(subjectAverage, subjectGradesMap);
         }
     }

@@ -19,24 +19,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
-/**
- * Średnią Ocen uczniów z danych przedmiotów,
- * Dane ucznia z najlepszą średnią w szkole z ostatniego miesiąca,
- * Dane ucznia z najgorszą średnia w szkole z ostatniego miesiąca.
- */
 @Component
 public class ReportGenerator {
 
     private PdfDocument pdfDocument;
-    @Autowired
-    private GradeRepository gradeRepository;
-    @Autowired
     private StudentGradeRepository studentGradeRepository;
-    @Autowired
-    private StudentRepository studentRepository;
 
-    private Integer count = 0;
+    @Autowired
+    public ReportGenerator(StudentGradeRepository studentGradeRepository) {
+        this.studentGradeRepository = studentGradeRepository;
+    }
 
     public void generateBestGradesReportFromYear(Integer year) {
         List<StudentGrade> allStudentGrades = MockDataResolver.getStudentGradeList();
@@ -48,10 +40,10 @@ public class ReportGenerator {
     }
 
     // every minute
+    // TODO: AFTER CONFIGURATION IS AVAILABLE - MOVE THIS PART
     @Scheduled(cron = "0 1 * * * *")
     public void generateBestGradesReportEver() {
-        // TODO: SWITCH TO PROPER REPOSITORY!!!
-        List<StudentGrade> allStudentGrades = MockDataResolver.getStudentGradeList();
+        List<StudentGrade> allStudentGrades = studentGradeRepository.findAll();
 
         System.out.println(LocalDateTime.now().toString() + ": CREATING REPORT!");
         List<Pair<Student, Double>> top100Students = GeneralFunctions.returnTopStudentsWithGradesAverage(allStudentGrades, 10);
@@ -60,14 +52,12 @@ public class ReportGenerator {
                 "We are very proud of their accomplishments.\n");
     }
 
-    public void generateSubjectAveragesReport(){
-        List<StudentGrade> allStudentGrades = MockDataResolver.getStudentGradeList();
+    public void generateSubjectAveragesReport() {
+        List<StudentGrade> allStudentGrades = studentGradeRepository.findAll();
 
-        Map<Integer, Map<String, Double>> treeMapIdStudentAverageBySubject = GeneralFunctions.createTreeMapIdStudentAverageBySubject(allStudentGrades);
+        Map<Student, Map<String, Double>> studentsWithSubjectsAverages = GeneralFunctions.getStudentsWithSubjectsAveragesFrom(allStudentGrades);
 
-
+        pdfDocument = new PdfDocument(".");
+        pdfDocument.generateStudentsSubjectAveraragesReport(studentsWithSubjectsAverages);
     }
-
-
-
 }

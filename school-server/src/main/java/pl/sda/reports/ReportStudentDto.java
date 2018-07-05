@@ -3,7 +3,9 @@ package pl.sda.reports;
 import pl.sda.model.Student;
 
 class ReportStudentDto {
-
+    /**
+     *
+     */
     private String studentName;
     private String className;
     private Integer year;
