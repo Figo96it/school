@@ -1,5 +1,3 @@
-drop schema school;
-
 create schema school;
 use school;
 
@@ -46,7 +44,7 @@ CREATE TABLE IF NOT EXISTS plan (
 CREATE TABLE school_subject (
   id           INT         NOT NULL AUTO_INCREMENT,
   subject_name VARCHAR(45) NOT NULL,
-  id_plan      INT         NOT NULL,
+  plan_id      INT         NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -88,9 +86,18 @@ CREATE TABLE IF NOT EXISTS parent (
   mail         VARCHAR(30)
 );
 
+/*
+CREATE TABLE IF NOT EXISTS plan_subjects (
+  id_plan         INT NOT NULL,
+  subject_id         INT NOT NULL
+  );
+*/
+
+/*
 ALTER TABLE grade
   ADD FOREIGN KEY (id_subject) REFERENCES school_subject (id)
 ON DELETE NO ACTION;
+*/
 
 ALTER TABLE parent
   ADD FOREIGN KEY (id_student) REFERENCES student (id)
@@ -101,7 +108,6 @@ ALTER TABLE student
 ON DELETE NO ACTION;
 
 
-
 ALTER TABLE student_grade
   ADD FOREIGN KEY (id_grade) REFERENCES grade (id)
 ON DELETE NO ACTION;
@@ -109,12 +115,11 @@ ON DELETE NO ACTION;
 ALTER TABLE student_grade
   ADD FOREIGN KEY (id_student) REFERENCES student (id)
 ON DELETE NO ACTION;
-
-
+/*
 ALTER TABLE school_subject
   ADD FOREIGN KEY (id_plan) REFERENCES plan (id)
 ON DELETE NO ACTION;
-
+*/
 ALTER TABLE plan
   ADD FOREIGN KEY (id_class) REFERENCES classroom (id)
 ON DELETE NO ACTION;

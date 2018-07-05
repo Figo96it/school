@@ -35,8 +35,7 @@ public class DataInitTool {
                         SubjectRepository subjectRepository,
                         StudentGradeRepository studentGradeRepository,
                         PlanRepository planRepository,
-                        @Value("true") Boolean usedDataInitTool
-//                        @Value("#{new Boolean('${useJpaMockedData}')}") Boolean usedDataInitTool
+                        @Value("#{new Boolean('${useJpaMockedData}')}") Boolean usedDataInitTool
     ) {
         this.gradeRepository = gradeRepository;
         this.parentRepository = parentRepository;
