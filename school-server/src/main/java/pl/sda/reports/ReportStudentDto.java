@@ -4,7 +4,7 @@ import pl.sda.model.Student;
 
 class ReportStudentDto {
     /**
-     *
+     * DataTransferObject used for pdf report generation
      */
     private String studentName;
     private String className;
