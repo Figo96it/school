@@ -1,5 +1,6 @@
 package pl.sda.reports;
 
+import com.itextpdf.text.DocumentException;
 import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import pl.sda.model.StudentGrade;
 import pl.sda.repository.StudentGradeRepository;
 import pl.sda.tool.GeneralFunctions;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -35,10 +37,13 @@ public class ReportGenerator {
         List<Pair<Student, Double>> top100Students = GeneralFunctions.returnTopStudentsWithGradesAverageByYear(allStudentGrades, year, 10);
 
         logger.info(LocalDateTime.now().toString() + ": CREATING BestGradesReportFromYear REPORT!");
-
-        pdfDocument = new PdfDocument(top100Students.stream().map(pair -> new ReportStudentDto(pair.getKey(), pair.getValue())).collect(Collectors.toList()), ".");
-        pdfDocument.generateWith("10 of the best Students of year " + year, "This is the list of our best students that we ever had.\n" +
-                "We are almost proud of their accomplishments.\n");
+        try {
+            pdfDocument = new PdfDocument(top100Students.stream().map(pair -> new ReportStudentDto(pair.getKey(), pair.getValue())).collect(Collectors.toList()), ".");
+            pdfDocument.generateWith("10 of the best Students of year " + year, "This is the list of our best students that we ever had.\n" +
+                    "We are almost proud of their accomplishments.\n");
+        } catch (DocumentException | FileNotFoundException e) {
+            logger.warn(e.getMessage());
+        }
     }
 
     @Scheduled(cron = "${reportInterval}")
@@ -47,10 +52,13 @@ public class ReportGenerator {
         List<Pair<Student, Double>> top100Students = GeneralFunctions.returnTopStudentsWithGradesAverage(allStudentGrades, 10);
 
         logger.info(LocalDateTime.now().toString() + ": CREATING BestGradesReportEver REPORT!");
-
-        pdfDocument = new PdfDocument(top100Students.stream().map(pair -> new ReportStudentDto(pair.getKey(), pair.getValue())).collect(Collectors.toList()), ".");
-        pdfDocument.generateWith("10 of the best Students EVER", "This is the list of our best students that we ever had.\n" +
-                "We are very proud of their accomplishments.\n");
+        try {
+            pdfDocument = new PdfDocument(top100Students.stream().map(pair -> new ReportStudentDto(pair.getKey(), pair.getValue())).collect(Collectors.toList()), ".");
+            pdfDocument.generateWith("10 of the best Students EVER", "This is the list of our best students that we ever had.\n" +
+                    "We are very proud of their accomplishments.\n");
+        } catch (DocumentException | FileNotFoundException e) {
+            logger.warn(e.getMessage());
+        }
     }
 
     @Scheduled(cron = "${reportInterval}")
@@ -61,6 +69,10 @@ public class ReportGenerator {
         logger.info(LocalDateTime.now().toString() + ": CREATING SubjectAveragesReport REPORT!");
 
         pdfDocument = new PdfDocument(".");
-        pdfDocument.generateStudentsSubjectAveraragesReport(studentsWithSubjectsAverages);
+        try {
+            pdfDocument.generateStudentsSubjectAveraragesReport(studentsWithSubjectsAverages);
+        } catch (DocumentException | FileNotFoundException e) {
+            logger.warn(e.getMessage());
+        }
     }
 }
