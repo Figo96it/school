@@ -1,5 +1,4 @@
-create schema school;
-use school;
+
 
 
 CREATE TABLE IF NOT EXISTS school (

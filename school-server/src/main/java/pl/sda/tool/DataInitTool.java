@@ -19,9 +19,10 @@ public class DataInitTool {
     private StudentRepository studentRepository;
     private SchoolRepository schoolRepository;
     private ClassroomRepository classroomRepository;
-    private EmployeeRepository employeeRepository;
     private SubjectRepository subjectRepository;
     private Boolean usedDataInitTool;
+    private StudentGradeRepository studentGradeRepository;
+    private PlanRepository planRepository;
 
     @Autowired
     public DataInitTool(GradeRepository gradeRepository,
@@ -29,8 +30,9 @@ public class DataInitTool {
                         StudentRepository studentRepository,
                         SchoolRepository schoolRepository,
                         ClassroomRepository classroomRepository,
-                        EmployeeRepository employeeRepository,
                         SubjectRepository subjectRepository,
+                        StudentGradeRepository studentGradeRepository,
+                        PlanRepository planRepository,
                         @Value("#{new Boolean('${useJpaMockedData}')}") Boolean usedDataInitTool
     ) {
         this.gradeRepository = gradeRepository;
@@ -38,32 +40,33 @@ public class DataInitTool {
         this.studentRepository = studentRepository;
         this.schoolRepository = schoolRepository;
         this.classroomRepository = classroomRepository;
-        this.employeeRepository = employeeRepository;
         this.subjectRepository = subjectRepository;
         this.usedDataInitTool = usedDataInitTool;
+        this.studentGradeRepository = studentGradeRepository;
+        this.planRepository = planRepository;
     }
 
     @PostConstruct
     public void initData() {
-    if(usedDataInitTool){
-        School fakeSchool = MockDataResolver.createFakeSchool();
-        List<Classroom> allClassrooms = MockDataResolver.findAllClassrooms();
-        List<Employee> allEmployees = MockDataResolver.findAllEmployees();
-        List<Grade> allGrades = MockDataResolver.findAllGrades();
-        List<Parent> allParents = MockDataResolver.findAllParents();
-        List<Student> allStudents = MockDataResolver.findAllStudents();
-        List<Subject> allSubjects = MockDataResolver.findAllSubjects();
-        MockDataResolver.createFakeDbDataWithRelations();
+        if (usedDataInitTool) {
+            MockDataResolver.createFakeDbDataWithRelations();
+            List<School> fakeSchool = MockDataResolver.getSchoolList();
+            List<Classroom> allClassrooms = MockDataResolver.findAllClassrooms();
+            List<Grade> allGrades = MockDataResolver.findAllGrades();
+            List<Parent> allParents = MockDataResolver.findAllParents();
+            List<Student> allStudents = MockDataResolver.findAllStudents();
+            List<Subject> allSubjects = MockDataResolver.findAllSubjects();
+            List<StudentGrade> studentGradeList = MockDataResolver.getStudentGradeList();
+            List<Plan> planList = MockDataResolver.getPlanList();
 
-        schoolRepository.save(fakeSchool);
-        classroomRepository.save(allClassrooms);
-        employeeRepository.save(allEmployees);
-        gradeRepository.save(allGrades);
-        parentRepository.save(allParents);
-        studentRepository.save(allStudents);
-        subjectRepository.save(allSubjects);
-    }
-
-
+            schoolRepository.save(fakeSchool);
+            classroomRepository.save(allClassrooms);
+            studentRepository.save(allStudents);
+            parentRepository.save(allParents);
+            subjectRepository.save(allSubjects);
+            planRepository.save(planList);
+            studentGradeRepository.save(studentGradeList);
+            gradeRepository.save(allGrades);
+        }
     }
 }
