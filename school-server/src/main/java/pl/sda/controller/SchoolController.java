@@ -1,9 +1,7 @@
 package pl.sda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.SchoolApi;
 import pl.sda.manager.SchoolManager;
 import pl.sda.model.School;
@@ -22,26 +20,26 @@ public class SchoolController implements SchoolApi {
 
     @Override
     @PostMapping("school/create")
-    public School create(School school) {
+    public School create(@RequestBody School school) {
         return schoolManager.create(school);
     }
 
     @Override
     @PostMapping("school/update")
-    public School edit(School school) {
+    public School edit(@RequestBody School school) {
         return schoolManager.edit(school);
     }
 
     @Override
     @PostMapping("school/delete")
-    public Integer delete(Integer id) {
+    public Integer delete(@RequestParam Integer id) {
         schoolManager.delete(id);
         return id;
     }
 
     @Override
     @GetMapping("school/find")
-    public School find(Integer id) {
+    public School find(@RequestParam Integer id) {
         return schoolManager.find(id);
     }
 

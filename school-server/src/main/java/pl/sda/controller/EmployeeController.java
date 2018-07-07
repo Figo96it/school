@@ -1,9 +1,7 @@
 package pl.sda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.EmployeeApi;
 import pl.sda.manager.EmployeeManager;
 import pl.sda.model.Employee;
@@ -22,26 +20,26 @@ public class EmployeeController implements EmployeeApi {
 
     @Override
     @PostMapping("employee/create")
-    public Employee create(Employee employee) {
+    public Employee create(@RequestBody Employee employee) {
         return employeeManager.create(employee);
     }
 
     @Override
     @PostMapping("employee/update")
-    public Employee edit(Employee employee) {
+    public Employee edit(@RequestBody Employee employee) {
         return employeeManager.edit(employee);
     }
 
     @Override
     @PostMapping("employee/delete")
-    public Integer delete(Integer id) {
+    public Integer delete(@RequestParam Integer id) {
         employeeManager.delete(id);
         return id;
     }
 
     @Override
     @GetMapping("employee/find")
-    public Employee find(Integer id) {
+    public Employee find(@RequestParam Integer id) {
         return employeeManager.find(id);
     }
 

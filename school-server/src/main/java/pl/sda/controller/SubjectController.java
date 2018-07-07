@@ -1,9 +1,7 @@
 package pl.sda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.SubjectApi;
 import pl.sda.manager.SubjectManager;
 import pl.sda.model.Subject;
@@ -22,26 +20,26 @@ public class SubjectController implements SubjectApi {
 
     @Override
     @PostMapping("subject/add")
-    public Subject create(Subject subject) {
+    public Subject create(@RequestBody Subject subject) {
         return subjectManager.create(subject);
     }
 
     @Override
     @PostMapping("subject/delete")
-    public Integer delete(Integer id) {
+    public Integer delete(@RequestParam Integer id) {
         subjectManager.delete(id);
         return id;
     }
 
     @Override
     @PostMapping("subject/edit")
-    public Subject edit(Subject subject) {
+    public Subject edit(@RequestBody Subject subject) {
         return subjectManager.edit(subject);
     }
 
     @Override
     @GetMapping("subject/find")
-    public Subject find(Integer id) {
+    public Subject find(@RequestParam Integer id) {
         return subjectManager.find(id);
     }
 

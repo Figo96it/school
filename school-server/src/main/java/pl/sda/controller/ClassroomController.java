@@ -2,9 +2,7 @@ package pl.sda.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.ClassroomApi;
 import pl.sda.manager.ClassroomManager;
 import pl.sda.model.Classroom;
@@ -23,20 +21,20 @@ public class ClassroomController implements ClassroomApi {
 
     @Override
     @PostMapping("classroom/create")
-    public Classroom create(Classroom classroom) {
+    public Classroom create(@RequestBody Classroom classroom) {
         return classroomManager.create(classroom);
     }
 
     @Override
     @PostMapping("classroom/delete")
-    public Integer delete(Integer id) {
+    public Integer delete(@RequestParam Integer id) {
         classroomManager.delete(id);
         return id;
     }
 
     @Override
     @PostMapping("classroom/edit")
-    public Classroom edit(Classroom classroom) {
+    public Classroom edit(@RequestBody Classroom classroom) {
         return classroomManager.edit(classroom);
     }
 
@@ -48,7 +46,7 @@ public class ClassroomController implements ClassroomApi {
 
     @Override
     @GetMapping("classroom/find")
-    public Classroom find(Integer id) {
+    public Classroom find(@RequestParam Integer id) {
         return classroomManager.find(id);
     }
 }

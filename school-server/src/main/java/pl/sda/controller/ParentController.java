@@ -1,9 +1,7 @@
 package pl.sda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.ParentApi;
 import pl.sda.manager.ParentManager;
 import pl.sda.model.Parent;
@@ -22,26 +20,26 @@ public class ParentController implements ParentApi {
 
     @Override
     @PostMapping("parent/create")
-    public Parent create(Parent parent) {
+    public Parent create(@RequestBody Parent parent) {
         return parentManager.create(parent);
     }
 
     @Override
     @PostMapping("parent/delete")
-    public Integer delete(Integer id) {
-         parentManager.delete(id);
-         return id;
+    public Integer delete(@RequestParam Integer id) {
+        parentManager.delete(id);
+        return id;
     }
 
     @Override
     @PostMapping("parent/edit")
-    public Parent edit(Parent parent) {
+    public Parent edit(@RequestBody Parent parent) {
         return parentManager.edit(parent);
     }
 
     @Override
     @GetMapping("parent/find")
-    public Parent find(Integer id) {
+    public Parent find(@RequestParam Integer id) {
         return parentManager.find(id);
     }
 

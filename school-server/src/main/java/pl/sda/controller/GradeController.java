@@ -1,9 +1,7 @@
 package pl.sda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.GradeApi;
 import pl.sda.manager.GradeManager;
 import pl.sda.model.Grade;
@@ -22,26 +20,26 @@ public class GradeController implements GradeApi {
 
     @Override
     @PostMapping("grade/create")
-    public Grade create(Grade grade) {
+    public Grade create(@RequestBody Grade grade) {
         return gradeManager.create(grade);
     }
 
     @Override
     @PostMapping("grade/update")
-    public Grade edit(Grade grade) {
+    public Grade edit(@RequestBody Grade grade) {
         return gradeManager.edit(grade);
     }
 
     @Override
     @PostMapping("grade/delete")
-    public Integer delete(Integer id) {
+    public Integer delete(@RequestParam Integer id) {
         gradeManager.delete(id);
         return id;
     }
 
     @Override
     @GetMapping("grade/find")
-    public Grade find(Integer id) {
+    public Grade find(@RequestParam Integer id) {
         return gradeManager.find(id);
     }
 

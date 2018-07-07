@@ -1,9 +1,7 @@
 package pl.sda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.api.StudentApi;
 import pl.sda.manager.StudentManager;
 import pl.sda.model.Student;
@@ -22,26 +20,34 @@ public class StudentController implements StudentApi {
 
     @Override
     @PostMapping("student/create")
-    public Student create(Student student) {
+    public Student create(@RequestBody Student student) {
         return studentManager.create(student);
     }
 
     @Override
     @PostMapping("student/update")
-    public Student edit(Student student) {
+    public Student edit(@RequestBody Student student) {
         return studentManager.edit(student);
     }
 
     @Override
     @PostMapping("student/delete")
-    public Integer delete(Integer id) {
+    public Integer delete(@RequestParam Integer id) {
         studentManager.delete(id);
         return id;
     }
 
     @Override
     @GetMapping("student/find")
-    public Student find(Integer id) {
+    public Student find(@RequestParam Integer id) {
+        return studentManager.find(id);
+    }
+
+    @GetMapping("student/find/{id}/{firstName}/{lastName}")
+    public Student find2(
+            @PathVariable Integer id,
+            @PathVariable String firstName,
+            @PathVariable String lastName) {
         return studentManager.find(id);
     }
 
