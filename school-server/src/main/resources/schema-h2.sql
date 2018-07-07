@@ -18,8 +18,6 @@ CREATE TABLE IF NOT EXISTS classroom (
   PRIMARY KEY (id)
 );
 
-
-
 CREATE TABLE IF NOT EXISTS employee (
   id         INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(45)  DEFAULT NULL,
