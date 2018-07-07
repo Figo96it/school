@@ -35,7 +35,7 @@ public class StudentManager {
     }
 
     public Student find(Integer studentId) {
-        return studentRepository.findOne(id);
+        return studentRepository.findOne(studentId);
     }
 
     public List<Student> findStudentByFirstName(String firstName) {

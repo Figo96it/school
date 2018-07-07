@@ -57,9 +57,9 @@ public class GradeController implements GradeApi {
     @Override
     @GetMapping("grade/findAll")
     public List<Grade> findAll() {
-        if(mockData){
+        if (mockData) {
             return MockDataResolver.findAllGrades();
-        }else{
+        } else {
             return gradeManager.findAll();
         }
     }

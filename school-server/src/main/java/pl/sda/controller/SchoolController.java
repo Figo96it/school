@@ -57,9 +57,9 @@ public class SchoolController implements SchoolApi {
     @Override
     @GetMapping("school/findAll")
     public List<School> findAll() {
-        if(mockData){
-            return MockDataResolver.getSchoolsList();
-        }else{
+        if (mockData) {
+            return MockDataResolver.getSchoolList();
+        } else {
             return schoolManager.findAll();
         }
     }

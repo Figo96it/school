@@ -12,8 +12,6 @@ public interface SubjectApi {
 
     Subject edit(Subject subject);
 
-    Subject find(Integer id);
-
     List<Subject> findAll();
 
     Subject find(Integer id);

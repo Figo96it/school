@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.api.PlanApi;
 import pl.sda.manager.PlanManager;
-import pl.sda.mocks.MockDataResolver;
 import pl.sda.model.Plan;
 
 import java.util.ArrayList;
@@ -58,9 +57,9 @@ public class PlanController implements PlanApi {
     @Override
     @GetMapping("plan/findAll")
     public List<Plan> findAll() {
-        if(mockData){
+        if (mockData) {
             return new ArrayList<Plan>();
-        }else{
+        } else {
             return planManager.findAll();
         }
     }

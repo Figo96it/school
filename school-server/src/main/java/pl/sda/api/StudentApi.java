@@ -12,8 +12,6 @@ public interface StudentApi {
 
     Student edit(Student student);
 
-    Student find(Integer id);
-
     List<Student> findAll();
 
     Student find(Integer studentId);

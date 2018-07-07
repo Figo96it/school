@@ -25,8 +25,6 @@ public class ClassroomManager {
 
     private static final Logger logger = getLogger(SchoolController.class);
 
-    public Classroom create() {
-        return null;
     public Integer delete(Integer id) {
         classroomRepository.delete(id);
         return id;
@@ -43,10 +41,8 @@ public class ClassroomManager {
     public List<Classroom> findAll() {
         return StreamSupport
                 .stream(classroomRepository.findAll().spliterator(), false).collect(toList());
-
-    public Classroom find(Integer id) {
-        return null;
     }
+
     public Classroom findClassroomByClassName(String className) {
         return null;
     }

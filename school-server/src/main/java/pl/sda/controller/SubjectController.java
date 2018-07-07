@@ -51,12 +51,6 @@ public class SubjectController implements SubjectApi {
     }
 
     @Override
-    @GetMapping("subject/find")
-    public Subject find(Integer id) {
-        return subjectManager.find(id);
-    }
-
-    @Override
     @GetMapping("subject/findAll")
     public List<Subject> findAll() {
         if(mockData){
@@ -79,7 +73,7 @@ public class SubjectController implements SubjectApi {
         } else {
             return subjectManager.find(id);
         }
-        return null;
+        return subjectManager.find(id);
     }
 
     @Override
