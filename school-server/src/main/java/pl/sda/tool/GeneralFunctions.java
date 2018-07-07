@@ -1,6 +1,6 @@
 package pl.sda.tool;
 
-import javafx.util.Pair;
+import org.apache.commons.math3.util.Pair;
 import pl.sda.model.Student;
 import pl.sda.model.StudentGrade;
 import pl.sda.model.Subject;

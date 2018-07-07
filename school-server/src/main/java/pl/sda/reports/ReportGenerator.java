@@ -1,7 +1,7 @@
 package pl.sda.reports;
 
 import com.itextpdf.text.DocumentException;
-import javafx.util.Pair;
+import org.apache.commons.math3.util.Pair;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
