@@ -1,7 +1,3 @@
-create schema school;
-use school;
-
-
 CREATE TABLE IF NOT EXISTS school (
   id      INT          NOT NULL AUTO_INCREMENT,
   name    VARCHAR(255) NOT NULL,
@@ -41,7 +37,7 @@ CREATE TABLE IF NOT EXISTS plan (
 
 
 
-CREATE TABLE school_subject (
+CREATE TABLE IF NOT EXISTS school_subject (
   id           INT         NOT NULL AUTO_INCREMENT,
   subject_name VARCHAR(45) NOT NULL,
   plan_id      INT         NOT NULL,
@@ -66,7 +62,7 @@ CREATE TABLE IF NOT EXISTS student_grade (
 
 
 
-CREATE TABLE student (
+CREATE TABLE IF NOT EXISTS student (
   id         INT AUTO_INCREMENT,
   id_class   INT         NOT NULL,
   first_name VARCHAR(20) NOT NULL,
@@ -80,10 +76,10 @@ CREATE TABLE IF NOT EXISTS parent (
   id           INT AUTO_INCREMENT PRIMARY KEY,
   first_name   VARCHAR(20),
   surname      VARCHAR(20) NOT NULL,
-  id_student   INT         NOT NULL,
+  id_student   INT,
   tell_number  VARCHAR(9),
   mobile_phone VARCHAR(9),
-  mail         VARCHAR(30)
+  mail         VARCHAR(40)
 );
 
 /*

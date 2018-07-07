@@ -19,31 +19,33 @@ public class StudentController implements StudentApi {
     }
 
     @Override
-    @PostMapping("student/create")
+    @PostMapping(value = "student/create", consumes = "application/json", produces = "application/json")
     public Student create(@RequestBody Student student) {
         return studentManager.create(student);
     }
 
     @Override
-    @PostMapping("student/update")
+    @PostMapping(value = "student/update", consumes = "application/json", produces = "application/json")
     public Student edit(@RequestBody Student student) {
         return studentManager.edit(student);
     }
 
     @Override
-    @PostMapping("student/delete")
+    @PostMapping(value = "student/delete", consumes = "application/json", produces = "application/json")
     public Integer delete(@RequestParam Integer id) {
+        Student student = studentManager.find(id);
+        student.setParent(null);
         studentManager.delete(id);
         return id;
     }
 
     @Override
-    @GetMapping("student/find")
+    @GetMapping(value = "student/find", consumes = "application/json", produces = "application/json")
     public Student find(@RequestParam Integer id) {
         return studentManager.find(id);
     }
 
-    @GetMapping("student/find/{id}/{firstName}/{lastName}")
+    @GetMapping(value = "student/find/{id}/{firstName}/{lastName}", consumes = "application/json", produces = "application/json")
     public Student find2(
             @PathVariable Integer id,
             @PathVariable String firstName,
@@ -52,7 +54,7 @@ public class StudentController implements StudentApi {
     }
 
     @Override
-    @GetMapping("student/findAll")
+    @GetMapping(value = "student/findAll", consumes = "application/json", produces = "application/json")
     public List<Student> findAll() {
         return studentManager.findAll();
     }
