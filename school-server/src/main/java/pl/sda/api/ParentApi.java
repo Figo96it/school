@@ -3,15 +3,16 @@ package pl.sda.api;
 
 import pl.sda.model.Parent;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface ParentApi {
 
-    Parent create();
+    Parent create(Parent parent);
 
-    Parent delete();
+    Integer delete(Integer id);
 
-    Parent edit();
+    Parent edit(Parent parent);
 
     Parent find(Integer id);
 

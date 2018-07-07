@@ -6,11 +6,13 @@ import java.util.List;
 
 public interface SubjectApi {
 
-    Subject create();
+    Subject create(Subject subject);
 
-    Subject delete();
+    Integer delete(Integer id);
 
-    Subject edit();
+    Subject edit(Subject subject);
+
+    Subject find(Integer id);
 
     List<Subject> findAll();
 

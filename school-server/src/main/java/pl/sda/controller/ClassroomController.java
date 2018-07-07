@@ -33,20 +33,21 @@ public class ClassroomController implements ClassroomApi {
 
     @Override
     @PostMapping("classroom/create")
-    public Classroom create() {
-        return classroomManager.create();
+    public Classroom create(Classroom classroom) {
+        return classroomManager.create(classroom);
     }
 
     @Override
     @PostMapping("classroom/delete")
-    public Classroom delete() {
-        return classroomManager.delete();
+    public Integer delete(Integer id) {
+        classroomManager.delete(id);
+        return id;
     }
 
     @Override
     @PostMapping("classroom/edit")
-    public Classroom edit() {
-        return classroomManager.edit();
+    public Classroom edit(Classroom classroom) {
+        return classroomManager.edit(classroom);
     }
 
     @Override
@@ -72,7 +73,7 @@ public class ClassroomController implements ClassroomApi {
         } else {
             return classroomManager.find(id);
         }
-        return null;
+        return classroomManager.find(id);
     }
 
     @Override

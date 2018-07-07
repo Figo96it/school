@@ -31,26 +31,27 @@ public class GradeController implements GradeApi {
 
     @Override
     @PostMapping("grade/create")
-    public Grade create() {
-        return gradeManager.create();
+    public Grade create(Grade grade) {
+        return gradeManager.create(grade);
     }
 
     @Override
     @PostMapping("grade/update")
-    public Grade update() {
-        return gradeManager.edit();
+    public Grade edit(Grade grade) {
+        return gradeManager.edit(grade);
     }
 
     @Override
     @PostMapping("grade/delete")
-    public Grade delete() {
-        return gradeManager.delete();
+    public Integer delete(Integer id) {
+        gradeManager.delete(id);
+        return id;
     }
 
     @Override
     @GetMapping("grade/find")
-    public Grade find() {
-        return gradeManager.find();
+    public Grade find(Integer id) {
+        return gradeManager.find(id);
     }
 
     @Override

@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface SchoolApi {
 
-    School create();
+    School create(School school);
 
-    School update();
+    Integer delete(Integer id);
 
-    School delete();
+    School edit(School school);
 
-    School find();
+    School find(Integer id);
 
     List<School> findAll();
 }

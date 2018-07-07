@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface EmployeeApi {
 
-    Employee create();
+    Employee create(Employee employee);
 
-    Employee update();
+    Integer delete(Integer id);
 
-    Employee delete();
+    Employee edit(Employee employee);
 
     Employee find(Integer id);
 
