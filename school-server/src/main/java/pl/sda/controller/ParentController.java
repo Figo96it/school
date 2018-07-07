@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class ParentController implements ParentApi {
-
+    @Autowired
     private ParentManager parentManager;
 
     @Autowired

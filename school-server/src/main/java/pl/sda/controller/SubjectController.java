@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class SubjectController implements SubjectApi {
-
+    @Autowired
     private SubjectManager subjectManager;
 
     @Autowired

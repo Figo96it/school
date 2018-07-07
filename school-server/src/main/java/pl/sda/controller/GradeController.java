@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class GradeController implements GradeApi {
-
+    @Autowired
     private GradeManager gradeManager;
 
     @Autowired

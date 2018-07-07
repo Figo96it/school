@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class SchoolController implements SchoolApi {
-
+    @Autowired
     private SchoolManager schoolManager;
 
     @Autowired

@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class EmployeeController implements EmployeeApi {
-
+    @Autowired
     private EmployeeManager employeeManager;
 
     @Autowired

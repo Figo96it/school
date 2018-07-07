@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class PlanController implements PlanApi {
-
+    @Autowired
     private PlanManager planManager;
 
     @Autowired
